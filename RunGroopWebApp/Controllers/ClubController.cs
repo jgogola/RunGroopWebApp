@@ -45,6 +45,10 @@ namespace RunGroopWebApp.Controllers
                 {
                     Title = clubVM.Title,
                     Description = clubVM.Description,
+                    Address = new Address
+                    {
+                        City 
+                    }
                     Image = result.Url.ToString()
                 };
                 _clubRepository.Add(club);
