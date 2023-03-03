@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Race>
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="container py-4">
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">Races</h1>
+            <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
+            <button class="btn btn-primary btn-lg" type="button">Example button</button>
+        </div>
+    </div>
+</div>
+
+<div class="container px-4 py-5" id="custom-cards">
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+
+        @foreach(var race in Model)
+        {
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="@race.Image" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@race.Title</h5>
+                        <p class="card-text">@race.Description</p>
+                         <a asp-controller="Race" asp-action="Detail" asp-route-id="@race.Id" class="btn btn-primary">View Race</a>
+                        <small class="text-muted">@race.RaceCategory</small>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
