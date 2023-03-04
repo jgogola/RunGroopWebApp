@@ -39,7 +39,7 @@ namespace RunGroopWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await _photoServices.AddPhotoAsync(clubVM .Image);
+                var result = await _photoServices.AddPhotoAsync(clubVM.Image);
 
                 var club = new Club
                 {
@@ -47,8 +47,10 @@ namespace RunGroopWebApp.Controllers
                     Description = clubVM.Description,
                     Address = new Address
                     {
-                        City 
-                    }
+                        Street = clubVM.Address.Street,
+                        City = clubVM.Address.City,
+                        State = clubVM.Address.State
+                    },
                     Image = result.Url.ToString()
                 };
                 _clubRepository.Add(club);
